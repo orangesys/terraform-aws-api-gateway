@@ -11,7 +11,8 @@ output "root_parent_id" {
 }
 
 output "resource_parent_id" {
-  value       = join("", aws_api_gateway_resource.default.*.id)
+  # value       = join(",", aws_api_gateway_resource.default.*.id)
+  value = aws_api_gateway_resource.default.*.id
   description = "The resource parent ID of the REST API."
 }
 
