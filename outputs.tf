@@ -5,9 +5,18 @@ output "id" {
   description = "The ID of the REST API."
 }
 
-output "parent_id" {
+output "root_parent_id" {
   value       = join("", aws_api_gateway_rest_api.default.*.root_resource_id)
   description = "The parent ID of the REST API."
+}
+
+output "resource_parent_id" {
+  value       = join("", aws_api_gateway_resource.default.*.id)
+  description = "The resource parent ID of the REST API."
+}
+
+output "authorizer_default_id" {
+  value = join("", aws_api_gateway_authorizer.default.*.id)
 }
 
 output "execution_arn" {
